@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.wrapper.ai {
+  background-color: #444654;
+}
+
+.wrapper.user {
+  background-color: transparent;
+}
+
+.chat {
+  display: flex;
+  gap: 20px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.profile.ai {
+  background-color: #10a37f;
+}
+
+.profile.user {
+  background-color: #5436da;
+}
+
+.message {
+  flex: 1;
+  color: #dcdcdc;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
