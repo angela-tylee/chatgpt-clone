@@ -102,7 +102,7 @@ cd server
 npm run server
 ```
 
-The server will start on [http://localhost:3001](http://localhost:3001)
+The server will start on [https://chatgpt-clone-c1hk.onrender.com](https://chatgpt-clone-c1hk.onrender.com)
 
 ### Start the frontend development server
 
@@ -117,7 +117,7 @@ The client will start on [http://localhost:5173](http://localhost:5173)
 
 ## Usage
 
-1. Open your browser and navigate to [http://localhost:5173](http://localhost:5173)
+1. Open your browser and navigate to the deployed application at [https://chatgpt-clone-c1hk.onrender.com](https://chatgpt-clone-c1hk.onrender.com) or locally at [http://localhost:5173](http://localhost:5173)
 2. Type your message in the text area at the bottom
 3. Press Enter or click the send button to submit your message
 4. Wait for the AI to respond with a typing animation effect
