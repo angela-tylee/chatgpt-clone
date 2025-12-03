@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "type": "module", 
   "scripts": {
+    "start": "node server.js",
     "server": "nodemon server"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
