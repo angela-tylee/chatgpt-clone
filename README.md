@@ -126,6 +126,7 @@ The client will start on [http://localhost:5173](http://localhost:5173)
 
 The OpenAI API is configured with the following parameters in [server/server.js](server/server.js:44-52):
 
+`const response = await openai.chat.completion.create()`
 - **Model**: `gpt-3.5-turbo`
 - **Temperature**: 0 (deterministic responses)
 - **Max Tokens**: 3000
@@ -182,6 +183,11 @@ The server is configured to accept requests from any origin. If you encounter CO
 - Server runs on port 3001
 - Client runs on port 5173
 - If these ports are in use, you can modify them in the respective configuration files
+
+## Useful Resources
+
+[Images | OpenAI API Reference](https://platform.openai.com/docs/api-reference/images/create)
+[Image generation | OpenAI API Guide](https://platform.openai.com/docs/guides/image-generation)
 
 ## Acknowledgments
 

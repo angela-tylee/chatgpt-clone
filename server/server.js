@@ -41,14 +41,23 @@ app.post('/', async(req, res) => {
   try {
     const prompt = req.body.prompt;
 
+    /**
+     * OpenAI Chat Completion API 參數說明
+     *
+     * @param {number} temperature - 設得越高 → 回答越有創意、越大膽、越不確定；設得越低（例如 0）→ 回答越精準、可控、可預測。
+     * @param {number} max_tokens - 限制模型最多能產生多少 token（詞片段）。Token ≠ 字數。英文大約 1 token ≈ 0.75 字。中文大約 1 token ≈ 1 字。👉 用來控制回答長度，避免回覆過長造成費用或跑版。
+     * @param {number} top_p - nucleus sampling 核採樣，和 temperature 一樣是控制「創意 vs 精準」。top_p = 1 表示不限制，採樣範圍最大。常見設定：希望更保守 → top_p = 0.5 ~ 0.9。⚠️ 一般建議：不要同時調高 temperature 和 top_p，選一個即可。
+     * @param {number} frequency_penalty - 頻率懲罰（-2 到 2）數值越高 → 越不會重複出現已經說過的內容。
+     * @param {number} presence_penalty - 話題懲罰（-2 到 2）數值越高 → 模型越不會停留在同一主題，會「鼓勵它談新話題」。例：設 >0：適合 brainstorm、想點子。設 0：保持自然、不強迫換話題。
+     */
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: prompt }],
-      temperature: 0, // Higher values means the model will take more risks.
-      max_tokens: 3000, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
-      top_p: 1, // alternative to sampling with temperature, called nucleus sampling
-      frequency_penalty: 0.5, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
-      presence_penalty: 0, // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+      temperature: 0,
+      max_tokens: 3000,
+      top_p: 1,
+      frequency_penalty: 0.5,
+      presence_penalty: 0,
     });
 
     res.status(200).send({
